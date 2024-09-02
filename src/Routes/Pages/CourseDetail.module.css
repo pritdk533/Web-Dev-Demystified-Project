@@ -1,0 +1,160 @@
+.module {
+  /* border: 2px solid red; */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+  border-left: 6px solid #efefef;
+}
+.btn {
+  background-color: #8e34ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.header {
+  /* border: 2px solid red; */
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 100px;
+  margin-top: 2rem;
+  align-items: center;
+}
+.headerImg {
+  width: 300px;
+
+  /* border: 2px solid red; */
+}
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 1rem;
+  /* border: 2px solid red; */
+}
+.headerButtonContainer {
+  display: flex;
+  width: 50%;
+  gap: 1rem;
+  /* align-items: stretch; */
+  /* border: 1px solid red; */
+}
+
+#curriculum {
+  border: 2px solid red;
+}
+.curriculumSection {
+  margin-top: 4rem;
+}
+
+.curriculumHeading {
+  color: #e9ca97;
+  font-size: 3rem;
+}
+.chapterNumber {
+  color: #cdcdcd;
+}
+.courseName {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    #ff6b6b,
+    #ffd93d,
+    #1db954,
+    #4d90fe,
+    #ff6b6b
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 7s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.courseDetailsPara {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #84d6d9;
+}
+
+.courseDetailColor {
+  color: #84d6d9;
+}
+
+.thumbnail {
+  height: auto;
+  width: 350px;
+  margin: auto;
+  display: block;
+}
+
+.logo {
+  /* height: 6em;
+  padding: 1.5em; */
+  will-change: filter;
+  transition: filter 300ms;
+  animation: logo-spin infinite 15s linear;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 920px) {
+  .header {
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: 100%;
+    /* justify-content: space-between; */
+    gap: 100px;
+    margin-top: 2rem;
+    /* align-items: center; */
+  }
+  .courseName {
+    font-size: 3rem;
+    color: #efefef;
+  }
+
+  .thumbnail {
+    height: auto;
+    width: 40%;
+    display: block;
+  }
+  .headerContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    /* border: 2px solid red; */
+  }
+
+  .headerButtonContainer {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    /* align-items: stretch; */
+    /* border: 1px solid red; */
+  }
+}

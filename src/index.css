@@ -1,0 +1,27 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  line-height: 1.5;
+  font-weight: 400;
+  /* background-color: #121212; */
+  background-color: #2c2b2c;
+  /* background-color: #292431; */
+  color: #fff;
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: #fff;
+}
+
+.container {
+  max-width: 1400px;
+  width: 90%;
+  margin: auto;
+}

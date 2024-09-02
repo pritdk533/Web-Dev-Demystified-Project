@@ -1,0 +1,17 @@
+.successSvg {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.successMsg_h1 {
+  text-align: center;
+}
+.successMsg_p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.linkTag {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #2389da;
+}
