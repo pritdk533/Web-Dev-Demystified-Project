@@ -3,11 +3,10 @@
 Welcome to the Web Dev Demystified Course Project repository! This README provides a brief overview
 of the project.
 
-### 1. User Authentication, Error Handling, Loading Animation, Notification Pop-up Related Flows
+### 1. User Authentication using JWT token, Error Handling, Protected Routes, React-Router-DOM feature.
 
-Efficient and secure user authentication, Error Handling, Protected Routes, Loading Animation, Notification Pop-up. Explore
-the detailed authentication processes in the relevant sections to ensure a
-smooth and secure user experience.
+Efficient and secure user authentication, Error Handling, Protected Routes, React-Router-DOM feature, and more. 
+Explore the detailed processes in the relevant sections to ensure a smooth and secure user experience.
 
 ### 2. Course and Module Listing
 
