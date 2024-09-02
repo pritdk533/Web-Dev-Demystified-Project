@@ -5,7 +5,7 @@ of the project.
 
 ### 1. User Authentication using JWT token, Error Handling, Protected Routes, React-Router-DOM feature.
 
-Efficient and secure user authentication, Error Handling, Protected Routes, React-Router-DOM feature, and more. 
+Efficient and secure user authentication using JWT token, Error Handling, Protected Routes, React-Router-DOM feature, and more. 
 Explore the detailed processes in the relevant sections to ensure a smooth and secure user experience.
 
 ### 2. Course and Module Listing
