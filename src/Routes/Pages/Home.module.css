@@ -1,8 +1,9 @@
 .hero {
-  margin-top: 2rem;
+  padding-top: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 }
 
 .headerSvg {
@@ -64,13 +65,12 @@
   gap: 2rem;
   border-radius: 20px;
   transition: all 0.5s ease-in-out;
-  /* border: 3px solid #121212; */
 }
 .courseCard:hover {
   transform: scale(1.03);
   box-shadow: -15px -15px 15px rgba(0, 0, 0, 0.3),
     15px 15px 15px rgba(0, 0, 0, 0.5);
-  /* border: 3px solid #121212; */
+  background: rgb(58, 48, 73, 0.4);
 }
 
 .courseCards {
@@ -111,18 +111,6 @@
 .coursePrice {
   margin-left: 4px;
 }
-/* .courseProjects {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
-
-/* .coursePrice {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.2rem;
-} */
 .thumbnail {
   height: auto;
   width: 60%;
@@ -137,8 +125,8 @@
   margin: 10px 0;
 }
 .moreInfoBtn {
-  background-color: #8e34ff;
-  color: #efefef;
+  background-color: #2389da;
+  color: #cfcfcf;
   padding: 0.5rem 0.8rem;
   /* display: block; */
   border-radius: 8px;
@@ -152,14 +140,15 @@
 }
 
 .moreInfoBtn:hover {
-  /* box-shadow: 1px 2px 1px #8e34ff; */
-  /* color: #84d6d9; */
+  background: #8d34fe;
+  color: #fff;
 }
 
 .courseSection {
   margin-top: 5rem;
 }
 .courseSectionHeading {
+  text-align: center;
   font-size: 2.2rem;
   color: #cfcfcf;
 }
@@ -171,7 +160,6 @@
 
 @media (max-width: 980px) {
   .hero {
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,21 +170,37 @@
     width: 50%;
   }
   .heroHeading {
+    text-align: center;
     font-size: 2.2rem;
   }
   .heroSubHeading {
+    text-align: center;
     font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  .heroButton {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @media (max-width: 620px) {
+  .heroHeading {
+    text-align: center;
+  }
+  .heroSubHeading {
+    text-align: center;
+    margin-top: 1rem;
+  }
   .courseCards {
     grid-template-columns: 1fr;
+  }
+  .heroButton {
+    margin-right: auto;
+    margin-right: auto;
   }
 }
 
 .logo {
-  /* height: 6em;
-  padding: 1.5em; */
   will-change: filter;
   transition: filter 300ms;
   animation: logo-spin infinite 15s linear;

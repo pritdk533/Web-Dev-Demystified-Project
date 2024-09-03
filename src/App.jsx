@@ -27,9 +27,8 @@ import { getUser } from "./Utils/getUser";
 import { homeLoader } from "./Routes/Pages/Home";
 import CourseDetail, { courseDetailLoader } from "./Routes/Pages/CourseDetail";
 import { paymentLoader } from "./Routes/Pages/Payment";
-// import MyCourseVideos from "./Routes/Pages/MyCourseVideos";
-import Thankyou from "./Routes/Pages/Thankyou";
 import { myCourseVideosLoader } from "./Routes/Pages/MyCourseVideos";
+import Thankyou from "./Routes/Pages/Thankyou";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
@@ -46,16 +45,16 @@ const router = createBrowserRouter(
         errorElement={<Error />}
       />
 
-      {/* ABOUT OUR COURSE */}
-      <Route path="/about" element={<About />} errorElement={<Error />} />
+      {/* NEED TO ADD ABOUT OUR COURSE */}
+      {/* <Route path="/about" element={<About />} errorElement={<Error />} /> */}
 
-      {/* MY PROFILE AFTER LOGIN */}
-      <Route
+      {/* NEED TO ADD MY PROFILE AFTER LOGIN */}
+      {/* <Route
         path="/profile"
         element={<Profile />}
         loader={profileLoader}
         errorElement={<Error />}
-      />
+      /> */}
 
       {/* MY Course Details After Login */}
       <Route

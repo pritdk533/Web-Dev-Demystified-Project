@@ -1,5 +1,4 @@
 .module {
-  /* border: 2px solid red; */
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 0 2rem;
@@ -18,31 +17,25 @@
   margin-top: 1rem;
 }
 .header {
-  /* border: 2px solid red; */
   display: flex;
-  /* justify-content: space-between; */
   gap: 100px;
-  margin-top: 2rem;
+  padding-top: 8rem;
   align-items: center;
+  transition: all 0.5s ease-in-out;
 }
 .headerImg {
   width: 300px;
-
-  /* border: 2px solid red; */
 }
 .headerContent {
   display: flex;
   flex-direction: column;
   width: 50%;
   gap: 1rem;
-  /* border: 2px solid red; */
 }
 .headerButtonContainer {
   display: flex;
   width: 50%;
   gap: 1rem;
-  /* align-items: stretch; */
-  /* border: 1px solid red; */
 }
 
 #curriculum {
@@ -61,7 +54,7 @@
 }
 .courseName {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 800;
   background: linear-gradient(
     270deg,
     #ff6b6b,
@@ -100,14 +93,12 @@
 
 .thumbnail {
   height: auto;
-  width: 350px;
+  width: 280px;
   margin: auto;
   display: block;
 }
 
 .logo {
-  /* height: 6em;
-  padding: 1.5em; */
   will-change: filter;
   transition: filter 300ms;
   animation: logo-spin infinite 15s linear;
@@ -124,16 +115,12 @@
 
 @media (max-width: 920px) {
   .header {
-    /* border: 2px solid red; */
     display: grid;
     grid-template-columns: 100%;
-    /* justify-content: space-between; */
     gap: 100px;
-    margin-top: 2rem;
-    /* align-items: center; */
   }
   .courseName {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #efefef;
   }
 
@@ -147,14 +134,65 @@
     flex-direction: column;
     width: 100%;
     gap: 1rem;
-    /* border: 2px solid red; */
   }
 
   .headerButtonContainer {
     display: flex;
     width: 100%;
     gap: 1rem;
-    /* align-items: stretch; */
-    /* border: 1px solid red; */
+  }
+}
+.lottiePlayer {
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.btnDisabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: #b5b5b5;
+  color: #dcdcdc;
+}
+
+@media (max-width: 1024px) {
+  .btn {
+    font-size: 1.2rem;
+  }
+  .headerButtonContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 769px) {
+  .courseName {
+    text-align: center;
+    font-size: 2.2rem;
+  }
+  .courseDetailsPara {
+    text-align: center;
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
+  }
+  .headerButtonContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .thumbnail {
+    width: 100%;
+  }
+  .courseName {
+    font-size: 2.2rem;
+  }
+  .courseDetailsPara {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
   }
 }

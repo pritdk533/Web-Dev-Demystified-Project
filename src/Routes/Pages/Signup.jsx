@@ -72,13 +72,13 @@ const Signup = () => {
       <h2 className={styles.pageHeading}>
         Create your Account and <span>Start Learning!</span>
       </h2>
-      <div className={styles.signupSvgAndFormContainer}>
+      <div className={`${styles.signupSvgAndFormContainer}`}>
         <div>
           <dotlottie-player
             src="https://lottie.host/8d348ed1-1a21-4e97-a893-dc5c40dc223d/vKPSkGqmAb.json"
             background="transparent"
             speed="1"
-            style={{ width: "500px", height: "500px" }}
+            style={{ height: "500px" }}
             loop
             autoplay
           ></dotlottie-player>
@@ -87,7 +87,7 @@ const Signup = () => {
           <Form
             method="POST"
             action="/signup"
-            className={styles.form}
+            className={`${styles.form} container`}
             ref={formRef}
           >
             <div>

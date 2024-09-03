@@ -2,26 +2,36 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  /* font-family: "Roboto", sans-serif; */
   line-height: 1.5;
   font-weight: 400;
-  /* background-color: #121212; */
   background-color: #2c2b2c;
-  /* background-color: #292431; */
   color: #fff;
   scroll-behavior: smooth;
+  transform-origin: 0 0; /* Ensure scaling starts from the top-left corner */
+  font-size: 16px; /* Set a base font size */
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 a {
   color: #fff;
 }
 
 .container {
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
   max-width: 1400px;
-  width: 90%;
-  margin: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

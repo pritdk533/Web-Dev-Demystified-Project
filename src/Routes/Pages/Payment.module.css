@@ -1,21 +1,16 @@
 .paymentHeading {
   max-width: 500px;
-  /* text-align: center; */
-  /* margin: 3rem; */
-  /* color: black; */
 }
 
 .paymentHeading_p1 {
-  /* letter-spacing: 1px; */
   color: #08beff;
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
 }
 .paymentHeading_p2 {
+  text-align: center;
   color: #84d6d9;
-  /* color: #8aa3a0; */
   font-size: 1.1rem;
   font-weight: 500;
-  /* letter-spacing: 1px; */
 }

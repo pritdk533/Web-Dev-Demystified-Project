@@ -4,10 +4,9 @@ import { getUser } from "../../Utils/getUser";
 import { useLoaderData } from "react-router-dom";
 import styles from "./MyCourseVideos.module.css";
 import ReactPlayer from "react-player/vimeo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export async function myCourseVideosLoader({ params }) {
-  console.log(params);
   const { course_id } = params;
   const { access_token } = await getUser();
 
@@ -18,7 +17,6 @@ export async function myCourseVideosLoader({ params }) {
     }
   );
   const modules = data.sort((a, b) => a.number - b.number);
-  console.log("modules-----11111", modules);
   const videos = await Promise.all(
     modules.map((module) => {
       return axios.get(
@@ -33,59 +31,59 @@ export async function myCourseVideosLoader({ params }) {
     })
   );
 
-  // need data something like this
-
-  console.log("videos", videos);
   const moduleVideos = videos.map((item) =>
     item.data.sort((a, b) => a.number - b.number)
   );
 
-  // const dummy = [{module_number: 1, videos : []}, {module_number: 2, videos: []}]
-
   const videosData = moduleVideos.map((videos, index) => {
     return { module_name: modules[index].name, videos };
   });
-  console.log("videosData", videosData);
-  // const videosArray = [].concat(...videosData);
-  // console.log("videosArray", videosArray);
+
   return videosData;
 }
+
 function MyCourseVideos() {
   const videosData = useLoaderData();
   if (videosData.length === 0) {
     return <h1>No videos found</h1>;
   }
+
   let firstVideo;
   for (let module of videosData) {
     if (module.videos.length > 0) {
       firstVideo = module.videos[0].vimeo_url;
+      break;
     }
   }
-  console.log("firstVideo", firstVideo);
+
   if (!firstVideo) {
     return <h1>No videos found</h1>;
   }
+
   const [videoUrl, setVideoUrl] = useState(firstVideo);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <div className={`${styles.myCourseSection}`}>
       <div className={styles.playlist}>
-        {videosData.map((module) => {
-          return (
-            <div>
-              <h3>{module.module_name}</h3>
-              <ul>
-                {module.videos.map((video, index) => (
-                  <li
-                    key={video.vimeo_url}
-                    onClick={() => setVideoUrl(video.vimeo_url)}
-                  >
-                    {index + 1}. {video.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+        {videosData.map((module, index) => (
+          <div key={index}>
+            <h3>{module.module_name}</h3>
+            <ul>
+              {module.videos.map((video, index) => (
+                <li
+                  key={video.number}
+                  onClick={() => setVideoUrl(video.vimeo_url)}
+                >
+                  {index + 1}. {video.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
       <div className={styles.videoContainer}>
         <ReactPlayer
@@ -99,4 +97,5 @@ function MyCourseVideos() {
     </div>
   );
 }
+
 export default MyCourseVideos;

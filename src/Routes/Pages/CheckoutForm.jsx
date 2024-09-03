@@ -1,5 +1,5 @@
 import { PaymentElement } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 import styles from "./CheckoutForm.module.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -15,8 +15,6 @@ export default function CheckoutForm() {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -25,7 +23,6 @@ export default function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: `${window.location.origin}/thankyou`,
       },
     });
@@ -41,6 +38,10 @@ export default function CheckoutForm() {
     setIsProcessing(false);
   };
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <>
       <div className={styles.checkout}>
@@ -55,10 +56,8 @@ export default function CheckoutForm() {
               {isProcessing ? "Processing ... " : "Pay Now"}
             </span>
           </button>
-          {/* Show any error or success messages */}
-          {/* {message && <div id="payment-message">{message}</div>} */}
         </form>
-        <ToastContainer />
+        <ToastContainer position="bottom-right" />
       </div>
     </>
   );

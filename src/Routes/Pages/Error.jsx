@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./Error.module.css";
 const Error = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div className={styles.ErrorContainer}>
       <dotlottie-player

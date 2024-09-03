@@ -83,16 +83,11 @@ const Home = () => {
               src="https://lottie.host/5d7f55d3-4270-4cb6-af87-aaf09f2264f3/9de5BXwBJj.json"
               background="transparent"
               speed="1"
-              style={{ width: "350px", height: "350px" }}
+              style={{ height: "350px" }}
               loop
               autoplay
             ></dotlottie-player>
           </div>
-          {/* <img
-            src={heroImage}
-            className={styles.heroImage}
-            alt="A person looking at the computer screen"
-          /> */}
         </section>
         <section className={styles.courseSection}>
           <h1 className={styles.courseSectionHeading}>
@@ -128,10 +123,6 @@ const Home = () => {
                     }
                   />
                   <p className={styles.courseNameHeading}>{name}</p>
-
-                  {/* <p className={styles.coursePrice}>
-                    <img src={rupee} alt="Rupee Symbol" /> {amount}
-                  </p> */}
                   <p className={styles.courseDescription}>{description}</p>
                   <div>
                     <p className={styles.courseDuration}>
@@ -145,7 +136,15 @@ const Home = () => {
                           autoplay
                         ></dotlottie-player>
                       </span>{" "}
-                      <span>{`22hr 40mins`}</span>
+                      <span>{`${
+                        name.includes("React")
+                          ? `22hr 40mins`
+                          : name.includes("JavaScript")
+                          ? `28hr 10mins`
+                          : name.includes("CSS")
+                          ? `16hr 30mins`
+                          : null
+                      }`}</span>
                     </p>
                     <p className={styles.courseProjects}>
                       <span>

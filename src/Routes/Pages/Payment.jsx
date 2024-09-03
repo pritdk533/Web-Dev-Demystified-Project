@@ -75,25 +75,28 @@ function Payment() {
     return <h1>{error}</h1>;
   }
   useEffect(() => {
+    window.scroll(0, 0);
     if (!isModalOpen) {
       navigate(`/course-detail/${params.course_id}?name=${courseName}`);
     }
   }, [!isModalOpen]);
   return (
     <>
-      {isModalOpen && (
-        <PurchaseModal closeModal={closeModal}>
-          <div className={styles.paymentHeading}>
-            <p className={styles.paymentHeading_p1}>Payment Checkout </p>
-            <p className={styles.paymentHeading_p2}>{courseName} Course</p>
-          </div>
-          {clientSecret && stripePromise && (
-            <Elements stripe={stripePromise} options={{ clientSecret }}>
-              <CheckoutForm />
-            </Elements>
-          )}
-        </PurchaseModal>
-      )}
+      <div>
+        {isModalOpen && (
+          <PurchaseModal closeModal={closeModal}>
+            <div className={styles.paymentHeading}>
+              <p className={styles.paymentHeading_p1}>Payment Checkout </p>
+              <p className={styles.paymentHeading_p2}>{courseName} Course</p>
+            </div>
+            {clientSecret && stripePromise && (
+              <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <CheckoutForm />
+              </Elements>
+            )}
+          </PurchaseModal>
+        )}
+      </div>
     </>
   );
 }

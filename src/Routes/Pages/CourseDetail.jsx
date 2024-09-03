@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { BASE_URL, SUPABASE_API_KEY } from "../../../constants";
-import coding from "../../assets/coding.svg";
 import styles from "./CourseDetail.module.css";
 import { getUser } from "../../Utils/getUser";
 import refresh_token from "../../Utils/refreshToken";
@@ -55,6 +54,7 @@ const CourseDetail = () => {
   return (
     <>
       <div className="container">
+        {/* <div className={styles.content}> */}
         <header className={styles.header}>
           <div className={styles.headerContent}>
             <h1 className={styles.courseName}>{courseName} Course</h1>
@@ -83,7 +83,11 @@ const CourseDetail = () => {
                     ? `/myCourse/${Course_ID}`
                     : `/payment/${Course_ID}?name=${courseName}`
                 }
-                className={styles.btn}
+                className={
+                  modules.length !== 0
+                    ? `${styles.btn}`
+                    : `${styles.btn} ${styles.btnDisabled}`
+                }
               >
                 {subscriptionData && isSubscribed ? "Go to Course" : "Buy Now"}
               </Link>
@@ -115,32 +119,36 @@ const CourseDetail = () => {
                 : `${styles.thumbnail}`
             }
           />
-
-          {/* <img
-            src={coding}
-            alt="Illustration of person doing coding"
-            className={styles.headerImg}
-          /> */}
         </header>
-        <section id="curriculum" className={styles.curriculumSection}>
-          <h2 className={styles.curriculumHeading}>Curriculum</h2>
-          {modules
-            .sort((a, b) => a.number - b.number)
-            .map((module) => {
-              const { id, number, name, description } = module;
-              return (
-                <div key={id} className={styles.module}>
-                  <h3 className={styles.chapterNumber}>Chapter {number}</h3>
-                  <h2 className={styles.courseDetailColor}>{name}</h2>
-                  <p className={styles.courseDetailColor}>{description}</p>
-                </div>
-              );
-            })}
-          <br />
-          {/* <Link to={`/payment/${Course_ID}`} className={styles.btn}>
-            Buy Now
-          </Link> */}
-        </section>
+        {modules.length !== 0 ? (
+          <section id="curriculum" className={styles.curriculumSection}>
+            <h2 className={styles.curriculumHeading}>Curriculum</h2>
+            {modules
+              .sort((a, b) => a.number - b.number)
+              .map((module) => {
+                const { id, number, name, description } = module;
+                return (
+                  <div key={id} className={styles.module}>
+                    <h3 className={styles.chapterNumber}>Chapter {number}</h3>
+                    <h2 className={styles.courseDetailColor}>{name}</h2>
+                    <p className={styles.courseDetailColor}>{description}</p>
+                  </div>
+                );
+              })}
+            <br />
+          </section>
+        ) : (
+          <div className={styles.lottiePlayer}>
+            <dotlottie-player
+              src="https://lottie.host/2189256f-6c6e-478f-a97c-913792849155/Mim2w3XyQ5.json"
+              background="transparent"
+              speed="1"
+              style={{ width: "700px", height: "700px" }}
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+        )}
       </div>
     </>
   );

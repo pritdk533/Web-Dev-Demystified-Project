@@ -11,6 +11,7 @@ import { getUser } from "../../Utils/getUser";
 import styles from "./LoginAndSignup.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 export const loginLoader = async ({ request, params }) => {
   // loader function always run before component render, So checking for for user if present or not
@@ -86,57 +87,55 @@ const Login = () => {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const loginUrlAction = location.pathname + location.search;
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <>
-      <h1 className={styles.pageHeading}>Welcome Back!</h1>
-      <p className={styles.loginPagePara}>Login to continue learning</p>
-      <div className={styles.loginConatinerAndSVG}>
-        <dotlottie-player
-          src="https://lottie.host/dc3b3c0b-cc64-4d25-b9fa-d67687cbffe3/ux51N09Etq.json"
-          background="transparent"
-          speed="1"
-          style={{ width: "500px", height: "500px" }}
-          loop
-          autoplay
-        ></dotlottie-player>
-        <div>
-          <Form
-            method="POST"
-            action={loginUrlAction}
-            className={styles.form}
-            replace
-          >
-            <div>
-              <label htmlFor="email">Email</label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                // placeholder="email"
-                autoComplete="off"
-              />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                // placeholder="password"
-                autoComplete="off"
-              />
-            </div>
-            <div>
-              <input
-                type="submit"
-                value={`${isSubmitting ? "submitting..." : "Login"}`}
-                disabled={isSubmitting}
-              />
-            </div>
-
-            {/* {data && data.error && <p>{data.error}</p>} */}
-          </Form>
-          <ToastContainer />
+      <div className={`container`}>
+        <h1 className={styles.pageHeading}>
+          <span>Welcome Back!</span>
+        </h1>
+        <p className={styles.loginPagePara}>Login to continue learning</p>
+        <div className={styles.loginConatinerAndSVG}>
+          <dotlottie-player
+            src="https://lottie.host/dc3b3c0b-cc64-4d25-b9fa-d67687cbffe3/ux51N09Etq.json"
+            background="transparent"
+            speed="1"
+            style={{ width: "500px" }}
+            loop
+            autoplay
+          ></dotlottie-player>
+          <div>
+            <Form
+              method="POST"
+              action={loginUrlAction}
+              className={styles.form}
+              replace
+            >
+              <div>
+                <label htmlFor="email">Email</label>
+                <input type="text" name="email" id="email" autoComplete="off" />
+              </div>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  autoComplete="off"
+                />
+              </div>
+              <div>
+                <input
+                  type="submit"
+                  value={`${isSubmitting ? "submitting..." : "Login"}`}
+                  disabled={isSubmitting}
+                />
+              </div>
+            </Form>
+            <ToastContainer position="bottom-right" />
+          </div>
         </div>
       </div>
     </>

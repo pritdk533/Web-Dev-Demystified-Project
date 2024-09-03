@@ -7,6 +7,7 @@ import refresh_token from "../../Utils/refreshToken";
 
 export const logoutAction = async () => {
   let { access_token, expires_at } = await getUser();
+  // STEPS neeed to COMPLETE when performing logout
   // Logout
   // Logout API
   // Clear Local Storage

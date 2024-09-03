@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 function Thankyou() {
   useEffect(() => {
+    window.scroll(0, 0);
     toast.info("Now Course Available in My Course Page");
   }, []);
   return (

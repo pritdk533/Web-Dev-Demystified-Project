@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { requireAuth } from "../../Utils/requireAuth";
 import refresh_token from "../../Utils/refreshToken";
 import { isTokenExpired } from "../../Utils/isTokenExpired";
@@ -58,11 +58,15 @@ export const myCourseLoader = async ({ request, params }) => {
 const MyCourse = () => {
   const myCourses = useLoaderData();
   console.log(myCourses);
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <>
       {myCourses.length !== 0 ? (
-        <div className={`${styles.myCoursesPage}`}>
-          <h1>My courses</h1>
+        <div className={`${styles.myCoursesPage} container`}>
+          {/* <div className={styles.content}> */}
+          <h1 className={styles.pageHeading}>My Courses</h1>
 
           <div className={styles.myCourses}>
             {myCourses.map((course) => {
@@ -98,6 +102,7 @@ const MyCourse = () => {
               );
             })}
           </div>
+          {/* </div> */}
         </div>
       ) : (
         <>

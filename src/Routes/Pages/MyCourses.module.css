@@ -1,43 +1,74 @@
 .myCourses {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 4rem;
   margin-top: 2rem;
 }
 .thumbnail {
   width: 50%;
   margin: 2rem auto;
   display: block;
-  /* border: 2px solid red; */
 }
 .courseCard {
-  /* width: 280px; */
   min-height: 50vh;
   background-color: #2c2b2c;
   text-align: center;
   transition: all 0.5s ease-in-out;
   padding: 1rem;
   border-radius: 10px;
-  border-right: 1px solid #54b1dc;
-  border-left: 1px solid #54b1dc;
-}
-.courseName {
-  /* padding: 1rem; */
-  margin: 2rem;
-}
-.courseCard:hover {
-  transform: scale(1.03);
   box-shadow: -10px -10px 10px rgba(0, 0, 0, 0.3),
     10px 10px 10px rgba(0, 0, 0, 0.5);
 }
-.myCoursesPage {
-  max-width: 1400px;
-  width: 90%;
-  margin: 4rem auto;
+
+.courseCard:hover {
+  transform: scale(1.03);
+  background: rgba(58, 48, 73, 0.4);
 }
+
+.pageHeading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  font-weight: 800;
+  background: linear-gradient(
+    270deg,
+    #ff6b6b,
+    #ffd93d,
+    #1db954,
+    #4d90fe,
+    #ff6b6b
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 7s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.courseName {
+  margin: 2rem;
+  font-weight: 800;
+  color: #efefef;
+}
+
+.myCoursesPage {
+  width: 90%;
+}
+
 .watchNowBtn {
-  background-color: #8e34ff;
-  color: #fff;
+  background-color: #2389da;
+  color: #cfcfcf;
   padding: 0.5rem 1rem;
   display: block;
   border-radius: 5px;
@@ -48,29 +79,15 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 .watchNowBtn:hover {
-  transform: scale(1.03);
-}
-@media (max-width: 640px) {
-  .myCourses {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .myCourses {
-    grid-template-columns: 1fr;
-  }
-}
-.myCoursesPage > h1 {
-  text-align: center;
-  color: #e9ca97;
+  transform: scale(1.06);
+  background: #8d34fe;
+  color: #fff;
 }
 
 .logo {
-  /* height: 6em;
-  padding: 1.5em; */
   will-change: filter;
   transition: filter 300ms;
   animation: logo-spin infinite 15s linear;
@@ -84,12 +101,89 @@
     transform: rotate(360deg);
   }
 }
-
 .notPurchased {
+  padding: 5rem;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 70vh;
+  min-height: 100vh;
+}
+
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .myCourses {
+    grid-template-columns: 1fr;
+  }
+  .myCoursesPage {
+    padding-top: 8rem;
+  }
+  .notPurchased {
+    padding-top: 10rem;
+  }
+  .pageHeading {
+    font-size: 3rem;
+  }
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .myCourses {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .myCoursesPage {
+    padding-top: 10rem;
+  }
+  .notPurchased {
+    padding-top: 10rem;
+  }
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .myCourses {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .myCoursesPage {
+    padding-top: 8rem;
+  }
+  .notPurchased {
+    padding-top: 8rem;
+  }
+  .pageHeading {
+    font-size: 3rem;
+  }
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .myCourses {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .myCoursesPage {
+    padding-top: 8rem;
+  }
+  .notPurchased {
+    padding-top: 8rem;
+  }
+  .pageHeading {
+    font-size: 4rem;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .myCourses {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .myCoursesPage {
+    padding-top: 8rem;
+  }
+  .notPurchased {
+    padding-top: 8rem;
+  }
+  .pageHeading {
+    font-size: 3.5rem;
+  }
 }
