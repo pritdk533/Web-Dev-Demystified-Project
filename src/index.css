@@ -29,9 +29,18 @@ a {
   margin: 0 auto;
 }
 
+.toastNotification {
+  margin-top: 4rem !important;
+}
+
 @media (max-width: 768px) {
   .container {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  .toastNotification {
+    margin-top: 5.7rem !important;
   }
 }

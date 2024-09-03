@@ -6,7 +6,9 @@ import { ToastContainer, toast } from "react-toastify";
 function Thankyou() {
   useEffect(() => {
     window.scroll(0, 0);
-    toast.info("Now Course Available in My Course Page");
+    toast.info("Now Course Available in My Course Page", {
+      className: "toastNotification",
+    });
   }, []);
   return (
     <div>
@@ -32,7 +34,7 @@ function Thankyou() {
           </Link>
         </p>
       </div>
-      <ToastContainer position="bottom-right" />
+      <ToastContainer />
     </div>
   );
 }

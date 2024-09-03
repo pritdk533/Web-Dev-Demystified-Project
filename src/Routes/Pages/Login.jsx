@@ -72,7 +72,9 @@ export const loginActionHandler = async (args) => {
     // Error When Login Creds Are Wrong
     if (error.response.status === 400) {
       // return { error: "Invalid Login Creds" };
-      return toast.error("Invalid User Credentials !");
+      return toast.error("Invalid User Credentials !", {
+        className: "toastNotification",
+      });
     }
     // Error when 401 unauthorized access
     if (error.response.status > 400) {
@@ -134,7 +136,7 @@ const Login = () => {
                 />
               </div>
             </Form>
-            <ToastContainer position="bottom-right" />
+            <ToastContainer />
           </div>
         </div>
       </div>

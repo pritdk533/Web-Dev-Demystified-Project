@@ -29,9 +29,13 @@ export default function CheckoutForm() {
     console.log(error);
     if (error.type === "card_error" || error.type === "validation_error") {
       // setMessage(error.message);
-      toast.error(error.message);
+      toast.error(error.message, {
+        className: "toastNotification",
+      });
     } else {
-      toast.error("Payment Failed !");
+      toast.error("Payment Failed !", {
+        className: "toastNotification",
+      });
       // setMessage("An unexpected error occured.");
     }
 
@@ -57,7 +61,7 @@ export default function CheckoutForm() {
             </span>
           </button>
         </form>
-        <ToastContainer position="bottom-right" />
+        <ToastContainer />
       </div>
     </>
   );

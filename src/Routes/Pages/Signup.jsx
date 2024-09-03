@@ -26,12 +26,16 @@ export async function signupAction({ request }) {
   const cnfPassword = formData?.get("confirm-password");
 
   if (cnfPassword !== newUser.password) {
-    toast.error("Password Must be matched");
+    toast.error("Password Must be matched", {
+      className: "toastNotification",
+    });
     return { passwordError: true };
   }
 
   if (!(newUser.password.length >= 6)) {
-    toast.error("Password should me more than or equal to 6 Characters");
+    toast.error("Password should me more than or equal to 6 Characters", {
+      className: "toastNotification",
+    });
     return { passwordError: true };
   }
 
@@ -43,13 +47,19 @@ export async function signupAction({ request }) {
       },
     });
     if (response?.data?.identities && response?.data?.identities.length === 0) {
-      return toast.error("user already exist");
+      return toast.error("user already exist", {
+        className: "toastNotification",
+      });
     }
 
-    toast.info("Verification Email Sent Please check your inbox!");
+    toast.info("Verification Email Sent Please check your inbox!", {
+      className: "toastNotification",
+    });
     return { message: "success" };
   } catch (error) {
-    toast.warning(error.response.data.msg);
+    toast.warning(error.response.data.msg, {
+      className: "toastNotification",
+    });
     return { error: error.response.data.msg };
   }
 }
@@ -128,7 +138,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <ToastContainer position="bottom-right" autoClose={10000} />
+      <ToastContainer autoClose={10000} />
     </div>
   );
 };
