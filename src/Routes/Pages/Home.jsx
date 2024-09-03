@@ -8,7 +8,6 @@ import {
 
 // SVG
 import rupee from "../../assets/rupee.svg";
-import heroImage from "../../assets/hero.svg";
 import thumbnail from "../../assets/thumbnail.svg";
 import reactLogo from "../../assets/react.svg";
 import jsLogo from "../../assets/javascript.svg";
